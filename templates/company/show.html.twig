@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise{% endblock %}
+
+{% block body %}
+    <h1>Détails de l'entreprise</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ company.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ company.email }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ company.type.name }}</td>
+            </tr>
+            <tr>
+                <th>Français</th>
+                <td>{{ company.french ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    {% for contact in company.contact %}
+        {{ contact.name }}
+    {% endfor %}
+
+    <a href="{{ path('company_index') }}">Retour</a>
+
+    <a href="{{ path('company_edit', {'id': company.id}) }}">edit</a>
+
+    {{ include('company/_delete_form.html.twig') }}
+{% endblock %}
