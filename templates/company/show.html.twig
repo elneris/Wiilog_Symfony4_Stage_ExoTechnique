@@ -61,7 +61,7 @@
 
     {% endfor %}
     </div>
-    {% if is_granted('DELETE', company) %}
+    {% if is_granted('ROLE_ADMIN', company) %}
     {{ include('company/_delete_form.html.twig') }}
     {% endif %}
 

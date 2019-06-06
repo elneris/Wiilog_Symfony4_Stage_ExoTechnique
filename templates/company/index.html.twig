@@ -29,7 +29,7 @@
         {% endfor %}
         </tbody>
     </table>
-    {% if is_granted('CREATE') %}
+    {% if is_granted('ROLE_ADMIN') %}
     <b>Ajouter une nouvelle entreprise :</b> <a href="{{ path('company_new') }}"><i class="material-icons">add_circle</i> </a>
     {% endif %}
 {% endblock %}
