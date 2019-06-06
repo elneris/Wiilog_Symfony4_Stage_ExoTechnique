@@ -4,9 +4,7 @@
 
 {% block body %}
     <h2 class="title">Modifier un contact</h2>
-    <form>
     {{ include('contact/_form.html.twig', {'button_label': 'Update'}) }}
-    </form>
     <a class="btn" href="{{ path('contact_index') }}">Retour</a>
 
     {{ include('contact/_delete_form.html.twig') }}

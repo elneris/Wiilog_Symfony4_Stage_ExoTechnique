@@ -4,8 +4,8 @@
 
 {% block body %}
     <h2 class="title">Ajouter un contact</h2>
-    <form>
+
     {{ include('contact/_form.html.twig') }}
-    </form>
+    
     <a class="btn" href="{{ path('contact_index') }}">Retour</a>
 {% endblock %}

@@ -6,14 +6,12 @@
     <h1>Contact index</h1>
 
     <table class="table">
-        <thead>
+        <tbody>
             <tr>
                 <th>Nom</th>
                 <th>Email</th>
                 <th>actions</th>
             </tr>
-        </thead>
-        <tbody>
         {% for contact in contacts %}
             <tr>
                 <td>{{ contact.name }}</td>
