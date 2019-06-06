@@ -18,7 +18,9 @@
                 <td>{{ contact.email }}</td>
                 <td>
                     <a href="{{ path('contact_show', {'id': contact.id}) }}"><i class="material-icons">info</i></a>
+                    {% if is_granted('EDIT') %}
                     <a href="{{ path('contact_edit', {'id': contact.id}) }}"><i class="material-icons">edit</i></a>
+                    {% endif %}
                 </td>
             </tr>
         {% else %}
@@ -28,6 +30,7 @@
         {% endfor %}
         </tbody>
     </table>
-
+    {% if is_granted('CREATE') %}
     <b>Ajouter un nouveau contact :</b> <a href="{{ path('contact_new') }}"><i class="material-icons">add_circle</i></a>
+    {% endif %}
 {% endblock %}
