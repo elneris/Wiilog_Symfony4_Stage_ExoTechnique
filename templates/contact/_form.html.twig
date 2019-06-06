@@ -1,6 +1,6 @@
 {{ form_start(form, { 'attr': {'class': 'form-group'} }) }}
-    {{ form_row(form.name, { 'attr': {'class': 'form-control'} }) }}
+    {{ form_row(form.name, { 'attr': {'class': 'form-control'}, 'name': 'Nom' }) }}
     {{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
-    {{ form_row(form.company, { 'attr': {'class': 'form-control'} }) }}
+    {{ form_row(form.company, { 'attr': {'class': 'form-control'}, 'name': 'Nom de l\'entreprise' }) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}
