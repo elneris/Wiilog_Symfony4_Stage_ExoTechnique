@@ -1,5 +1,14 @@
 # Offre de stage Wiilog
 
+## INFO :
+
+- J'ai ajouté des Fixtures afin de tester l'application :
+    - seul l'admin a les droits de création, de modification et de suppression.
+    - l'utilisateur classique ne peut que visualiser.
+    - admin : admin@admin.com => mdp : admin
+    - utilisateur test : elneris@test.com => mdp : test
+        
+
 Exercice technique dans le cadre d'une demande de stage à Wiilog !
 Bien que nous avons commencé symfony 4 il y a seulement 3 semaines, j'ai choisi de réaliser cette exercice sous ce,
 framework et non en mvc pour plus de challenge.
