@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout Entreprise{% endblock %}
+
+{% block body %}
+    <h2 class="title">Creation d'une entreprise</h2>
+
+    {{ include('company/_form.html.twig') }}
+
+    <a class="btn" href="{{ path('company_index') }}">retour</a>
+{% endblock %}

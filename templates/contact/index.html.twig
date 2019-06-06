@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact index{% endblock %}
+
+{% block body %}
+    <h1>Contact index</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>{{ contact.email }}</td>
+                <td>
+                    <a href="{{ path('contact_show', {'id': contact.id}) }}"><i class="material-icons">info</i></a>
+                    {% if is_granted('ROLE_ADMIN') %}
+                    <a href="{{ path('contact_edit', {'id': contact.id}) }}"><i class="material-icons">edit</i></a>
+                    {% endif %}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun contact</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% if is_granted('ROLE_ADMIN') %}
+    <b>Ajouter un nouveau contact :</b> <a href="{{ path('contact_new') }}"><i class="material-icons">add_circle</i></a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Entreprise{% endblock %}
+
+{% block body %}
+        <h2 class="title">Détail de l'entreprise</h2>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ company.name }}</td>
+            </tr>
+            <tr>
+                <th>Email</th>
+                <td>{{ company.email }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ company.type.name }}</td>
+            </tr>
+            <tr>
+                <th>Français</th>
+                <td>{{ company.french ? 'Oui' : 'Non' }}</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <a class="btn" href="{{ path('company_index') }}">Retour</a>
+        {% if is_granted('EDIT', company) %}
+        <a class="btn" href="{{ path('company_edit', {'id': company.id}) }}">edit</a>
+        {% endif %}
+    </div>
+    <h2 class="title">Contacts de l'entreprise</h2>
+        <div class="row">
+    {% for contact in company.contact %}
+
+        <div class="card card-profile col-lg-4 col-md-6">
+            <div class="card-header card-header-image">
+                <a href="{{ path('contact_show', {'id': contact.id}) }}">
+                    <img class="img" src="https://fr.cdn.v5.futura-sciences.com/buildsv6/images/mediumoriginal/6/5/2/652a7adb1b_98148_01-intro-773.jpg">
+                </a>
+            </div>
+
+            <div class="card-body ">
+                <h4 class="card-title">{{ contact.name }}</h4>
+                <h6 class="card-category text-gray">{{ contact.email }}</h6>
+            </div>
+            <div class="card-footer justify-content-center">
+                <a href="#pablo" class="btn btn-just-icon btn-twitter btn-round">
+                    <i class="fa fa-twitter"></i>
+                </a>
+                <a href="#pablo" class="btn btn-just-icon btn-facebook btn-round">
+                    <i class="fa fa-facebook-square"></i>
+                </a>
+                <a href="#pablo" class="btn btn-just-icon btn-google btn-round">
+                    <i class="fa fa-google"></i>
+                </a>
+            </div>
+        </div>
+
+    {% endfor %}
+    </div>
+    {% if is_granted('ROLE_ADMIN', company) %}
+    {{ include('company/_delete_form.html.twig') }}
+    {% endif %}
+
+{% endblock %}
