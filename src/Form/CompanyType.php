@@ -6,6 +6,7 @@ use App\Entity\Company;
 use App\Entity\Type;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -16,7 +17,12 @@ class CompanyType extends AbstractType
         $builder
             ->add('name')
             ->add('email')
-            ->add('french')
+            ->add('french', ChoiceType::class, [
+                'choices' => [
+                    'Non' => '0',
+                    'Oui' => '1'
+                ]
+            ])
             ->add('type', EntityType::class, [
                 'class' => Type::class,
                 'choice_label' => 'name'

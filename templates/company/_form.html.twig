@@ -1,8 +1,13 @@
 
 {{ form_start(form, { 'attr': {'class': 'form-group'} }) }}
-    {{ form_row(form.name, { 'attr': {'class': 'form-control'} }) }}
+    {{ form_row(form.name, { 'attr': {'class': 'form-control'}, 'name': 'Nom de l\'entreprise' }) }}
     {{ form_row(form.email, { 'attr': {'class': 'form-control'} }) }}
     {{ form_row(form.type, { 'attr': {'class': 'form-control'} }) }}
-    {{ form_row(form.french, { 'attr': {'class': 'form-control'} }) }}
+
+    {{ form_row(form.french, { 'attr': {'class': 'form-control'}, 'name': 'Entreprise en France'  }) }}
+
     <button class="btn">{{ button_label|default('Envoyer') }}</button>
 {{ form_end(form) }}
+
+
+
